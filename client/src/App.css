@@ -1,0 +1,82 @@
+.app {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+  height: 500px;
+  width: 400px;
+  padding: 16px;
+}
+
+.header__container {
+  margin-bottom: 1rem;
+}
+
+.form__container {
+  margin-bottom: 1rem;
+}
+
+.form__container-input {
+  width: 100%;
+  padding: 1rem 0.625rem;
+  border: none;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+  font-size: 1rem;
+}
+
+.tasks__container {
+  padding: 0.5rem;
+}
+
+.tasks__list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.tasks__item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 0.7rem;
+}
+
+.tasks__checkbox {
+  margin-right: 0.5rem;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
+
+.tasks__text,
+.tasks__text-input {
+  font-size: 1rem;
+  width: 100%;
+  font-family: inherit;
+}
+
+.tasks__text-input {
+  border: none;
+  outline: none;
+}
+.tasks__deleteButton {
+  margin-left: auto;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-self: center;
+}
+
+.no-tasks__container {
+  display: flex;
+  align-items: center;
+}
+
+.no-tasks__text {
+  margin-left: 0.5rem;
+}
+
+.section__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
