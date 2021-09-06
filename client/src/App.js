@@ -3,7 +3,9 @@ import CloseIcon from "@material-ui/icons/Close";
 import NoTasks from "./NoTasks";
 import Header from "./Header";
 import Form from "./Form";
+import CheckTasks from "./CheckTasks";
 import TasksRemaining from "./TasksRemaining";
+import TasksClearCompleted from "./TasksClearCompleted";
 import "./App.css";
 
 const App = () => {
@@ -83,6 +85,19 @@ const App = () => {
     });
     setTasks([...updatedTasks]);
   };
+
+  const clearCompleted = () => {
+    setTasks([...tasks].filter((task) => !task.isCompleted));
+  };
+
+  const completeAllTasks = () => {
+    const updatedTasks = tasks.map((task) => {
+      task.isCompleted = true;
+      return task;
+    });
+    setTasks([...updatedTasks]);
+  };
+
   return (
     <div className="app">
       <Header />
@@ -140,8 +155,16 @@ const App = () => {
               );
             })}
           </ul>
-          <div className="section__container">
-            <TasksRemaining tasks={tasks} />
+          <div className="section">
+            <div className="footerOne__container">
+              <CheckTasks completeAllTasks={completeAllTasks} />
+              <TasksRemaining tasks={tasks} />
+            </div>
+          </div>
+          <div className="section">
+            <div className="footerTwo__container">
+              <TasksClearCompleted clearCompleted={clearCompleted} />
+            </div>
           </div>
         </div>
       ) : (
