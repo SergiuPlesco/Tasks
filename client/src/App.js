@@ -5,13 +5,16 @@ import Header from "./Header";
 import Form from "./Form";
 import CheckTasks from "./CheckTasks";
 import TasksRemaining from "./TasksRemaining";
+import TasksFilters from "./TasksFilters";
 import TasksClearCompleted from "./TasksClearCompleted";
+import useLocalStorage from "./hooks/useLocalStorage";
 import "./App.css";
 
 const App = () => {
   const [inputValue, setInputValue] = useState("");
-  const [taskId, setTaskId] = useState(1);
-  const [tasks, setTasks] = useState([]);
+  const [taskId, setTaskId] = useLocalStorage("taskId", 1);
+  // const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useLocalStorage("tasks", []);
 
   const handleInput = (e) => {
     e.preventDefault();
@@ -163,6 +166,7 @@ const App = () => {
           </div>
           <div className="section">
             <div className="footerTwo__container">
+              <TasksFilters />
               <TasksClearCompleted clearCompleted={clearCompleted} />
             </div>
           </div>

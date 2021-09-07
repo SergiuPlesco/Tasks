@@ -80,14 +80,19 @@
   border-top: 1px solid #ececec;
 }
 
-.footerOne__container {
+.footerOne__container,
+.footerTwo__container {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.footerTwo__container {
+.taskFilters__container {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+}
+
+.taskFilters__container button {
+  margin-right: 0.5rem;
 }
