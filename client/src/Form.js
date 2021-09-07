@@ -1,6 +1,35 @@
-import React from "react";
+import React, { useContext, useState } from "react";
+import { TasksContext } from "./context/TasksContext";
 
-function Form({ addTask, inputValue, handleInput }) {
+const Form = () => {
+  const { tasks, setTasks, taskId, setTaskId } = useContext(TasksContext);
+
+  const [inputValue, setInputValue] = useState("");
+
+  const handleInput = (e) => {
+    e.preventDefault();
+    setInputValue(e.target.value);
+  };
+
+  const addTask = (e) => {
+    e.preventDefault();
+
+    if (inputValue.trim().length === 0) {
+      return;
+    }
+
+    setTasks([
+      ...tasks,
+      {
+        id: taskId,
+        title: inputValue,
+        isCompleted: false,
+      },
+    ]);
+    setInputValue("");
+    setTaskId((prevId) => prevId + 1);
+  };
+
   return (
     <div className="form__container">
       <form className="form__container-form" onSubmit={addTask}>
@@ -14,6 +43,6 @@ function Form({ addTask, inputValue, handleInput }) {
       </form>
     </div>
   );
-}
+};
 
 export default Form;

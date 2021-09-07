@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import { TasksContext } from "./context/TasksContext";
 
-function TasksClearCompleted({ clearCompleted }) {
+function TasksClearCompleted() {
+  const { tasks, setTasks } = useContext(TasksContext);
+
+  const clearCompleted = () => {
+    setTasks([...tasks].filter((task) => !task.isCompleted));
+  };
+
   return (
     <div>
       <button
