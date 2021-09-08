@@ -5,7 +5,7 @@ import TasksFilters from "./TasksFilters";
 import TasksClearCompleted from "./TasksClearCompleted";
 import DeleteButton from "./DeleteButton";
 import CheckBox from "./CheckBox";
-import { TasksContext } from "./context/TasksContext";
+import { TasksContext } from "../context/TasksContext";
 
 const TasksList = () => {
   const { tasks, setTasks, filterTasks } = useContext(TasksContext);

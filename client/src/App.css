@@ -2,7 +2,7 @@
   background-color: white;
   border-radius: 5px;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
-  height: 500px;
+  min-height: 500px;
   width: 400px;
   padding: 16px;
 }

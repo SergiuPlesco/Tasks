@@ -1,9 +1,8 @@
-import React, { useContext, useState } from "react";
-import { TasksContext } from "./context/TasksContext";
+import React, { useContext } from "react";
+import { TasksContext } from "../context/TasksContext";
 
 function TasksFilters() {
-  const { tasks, setTasks, activeFilter, setActiveFilter, filterTasks } =
-    useContext(TasksContext);
+  const { setActiveFilter, filterTasks } = useContext(TasksContext);
 
   return (
     <div className="taskFilters__container">

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { TasksContext } from "./context/TasksContext";
+import { TasksContext } from "../context/TasksContext";
 import CloseIcon from "@material-ui/icons/Close";
 
 const DeleteButton = ({ task }) => {
