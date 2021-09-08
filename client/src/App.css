@@ -1,12 +1,45 @@
 .app {
+  margin: auto;
   background-color: white;
   border-radius: 5px;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
   min-height: 500px;
-  width: 400px;
+  max-width: 400px;
   padding: 16px;
 }
 
+.nav__container {
+  background-color: white;
+  margin-bottom: 2rem;
+}
+
+.nav {
+  padding: 1rem 0;
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.nav__item {
+  margin: 0 1rem;
+}
+
+.nav__link {
+  text-decoration: none;
+}
+
+/* .nav__link:hover {
+  text-decoration: underline;
+} */
+.active {
+  text-decoration: underline;
+}
 .header__container {
   margin-bottom: 1rem;
 }

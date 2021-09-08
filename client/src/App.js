@@ -1,46 +1,56 @@
-import { useState } from "react";
-import NoTasks from "./components/NoTasks";
-import Header from "./components/Header";
-import Form from "./components/Form";
-import useLocalStorage from "./hooks/useLocalStorage";
-import { TasksContext } from "./context/TasksContext";
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./components/Home";
+import NavigationBar from "./components/NavigationBar";
+import About from "./components/pages/About";
+import Contact from "./components/pages/Contact";
+import Blog from "./components/pages/Blog";
+import Post from "./components/pages/Post";
+import NotFound from "./components/pages/NotFound";
 import "./App.css";
-import TasksList from "./components/TasksList";
 
 const App = () => {
-  const [taskId, setTaskId] = useLocalStorage("taskId", 1);
-  const [tasks, setTasks] = useLocalStorage("tasks", []);
-  const [activeFilter, setActiveFilter] = useState("All");
-
-  const filterTasks = () => {
-    if (activeFilter === "All") {
-      return tasks;
-    } else if (activeFilter === "Active") {
-      return tasks.filter((task) => !task.isCompleted);
-    } else if (activeFilter === "Completed") {
-      return tasks.filter((task) => task.isCompleted);
-    }
-  };
-
+  const routes = [
+    { path: "/", Component: Home, exact: true },
+    { path: "/about", Component: About, exact: true },
+    { path: "/contact", Component: Contact, exact: true },
+    { path: "/blog", Component: Blog, exact: true },
+    { path: "/blog/:id", Component: Post, exact: false },
+    { path: "*", Component: NotFound, exact: true },
+  ];
   return (
-    <TasksContext.Provider
-      value={{
-        tasks,
-        setTasks,
-        taskId,
-        setTaskId,
-        activeFilter,
-        setActiveFilter,
-        filterTasks,
-      }}
-    >
-      <div className="app">
-        <Header />
-        <Form />
-
-        {tasks.length > 0 ? <TasksList /> : <NoTasks />}
+    <Router>
+      <div className="app__container">
+        <NavigationBar />
+        <Switch>
+          {/* {routes.map(({ path, Component, exact }) => {
+            return (
+              <Route key={path} exact={`${exact}`} path={path}>
+                <Component />
+              </Route>
+            );
+          })} */}
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/contact">
+            <Contact />
+          </Route>
+          <Route exact path="/blog">
+            <Blog />
+          </Route>
+          <Route path="/blog/:id">
+            <Post />
+          </Route>
+          <Route path="*">
+            <NotFound />
+          </Route>
+        </Switch>
       </div>
-    </TasksContext.Provider>
+    </Router>
   );
 };
 
