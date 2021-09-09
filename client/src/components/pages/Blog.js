@@ -5,7 +5,7 @@ const Blog = () => {
   return (
     <div>
       <ul>
-        <li className="bloglist__item">
+        <li>
           <Link exact="true" to="/blog/1">
             Post One
           </Link>
