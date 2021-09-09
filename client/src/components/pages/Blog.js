@@ -3,15 +3,15 @@ import { NavLink, Link } from "react-router-dom";
 
 const Blog = () => {
   return (
-    <div>
-      <ul>
-        <li>
-          <Link exact="true" to="/blog/1">
+    <div className="bloglist__container">
+      <ul className="bloglist">
+        <li className="bloglist__item">
+          <Link className="bloglist__link" exact="true" to="/blog/1">
             Post One
           </Link>
         </li>
-        <li>
-          <NavLink exact to="/blog/2">
+        <li className="bloglist__item">
+          <NavLink className="bloglist__link" exact to="/blog/2">
             Post Two
           </NavLink>
         </li>
